@@ -34,8 +34,8 @@ public class MymovieController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Suceess|OK"),
             @ApiResponse(code = 401, message = "not authorized!"),
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!") })
+            @ApiResponse(code = 403, message = "forbidden !"),
+            @ApiResponse(code = 404, message = "not found !") })
     @GetMapping("/acteurs")
     public List<ActeurDAO> getActeurs() {
         return acteurs;
