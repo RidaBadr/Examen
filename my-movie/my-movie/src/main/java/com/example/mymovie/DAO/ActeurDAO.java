@@ -1,14 +1,22 @@
 package com.example.mymovie.DAO;
-
 import java.util.Date;
+import java.util.List;
 
 public class ActeurDAO {
-
     private String nom;
     private String prenom;
-    private Date datedenaissance;
+    private Date datenaissance;
+    private List<FilmDAO> filmography;
 
-    private String filmographie;
+    public ActeurDAO(String nom, String prenom, Date dateNaissance) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.datenaissance = dateNaissance;
+    }
+
+    public void addFilm(FilmDAO film) {
+        filmography.add(film);
+    }
 
     public String getNom() {
         return nom;
@@ -18,27 +26,11 @@ public class ActeurDAO {
         return prenom;
     }
 
-    public Date getDatedenaissance() {
-        return datedenaissance;
+    public Date getDateNaissance() {
+        return datenaissance;
     }
 
-    public String getFilmographie() {
-        return filmographie;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public void setDatedenaissance(Date datedenaissance) {
-        this.datedenaissance = datedenaissance;
-    }
-
-    public void setFilmographie(String filmographie) {
-        this.filmographie = filmographie;
+    public List<FilmDAO> getFilmographie() {
+        return filmography;
     }
 }
