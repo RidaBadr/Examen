@@ -1,6 +1,9 @@
 package com.example.mymovie.Controller;
 import com.example.mymovie.DAO.ActeurDAO;
 import com.example.mymovie.DAO.FilmDAO;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,10 +29,18 @@ public class MymovieController {
         films.add(film1);
         films.add(film2);
     }
+
+    @ApiOperation(value = "Get list of Films acteurs in the System ", response = Iterable.class, tags = "getActs")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Suceess|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"),
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "not found!!!") })
     @GetMapping("/acteurs")
     public List<ActeurDAO> getActeurs() {
         return acteurs;
     }
+
 
     @GetMapping("/acteurs/{nom}")
     public ActeurDAO getActeurByNom(@PathVariable String nom) {
